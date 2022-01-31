@@ -687,7 +687,7 @@ int main(int argc, char *argv[])
 
 
 
-//ZADANIE DWUNASTE
+//ZADANIE TRZYNASTE
 
 
 #include <stdio.h>
@@ -696,7 +696,7 @@ int main(int argc, char *argv[])
 #include <stdbool.h>
 
 
-
+const char kod[]={32, 33,34,35,36,37,38,39,40,41};
 
 
 int main(int argc, char *argv[])
@@ -764,13 +764,28 @@ int main(int argc, char *argv[])
     for( int y=0; y<wym_y; y++)
     {
         for(int x=0; x<wym_x; x++)
-            bufor_1[x]=obraz_1[y][x]+48;
-        
+        {   
+            for(int a=0; a<10; a++)
+            {
+                if(obraz_1[y][x]==a)
+                    bufor_1[x]=kod[a];
+            }
+        }
         bufor_1[wym_x]='\0';
         printf("Strlen of bufor: %ld \n", strlen(bufor_1));
         strncpy(obraz_2[y],bufor_1,wym_x);
 
         //putchar('\n');
+    }
+
+
+    for( int y=0; y<wym_y; y++)
+    {
+        for(int x=0; x<wym_x; x++)
+            printf("%d ",obraz_1[y][x]);
+
+        printf("\n%s Numer y: %d \n\n", obraz_2[y], y);
+        
     }
 
     fprintf(stdout,"Wymiar x: %d, wymiar y: %d .\n",wym_x,wym_y);
